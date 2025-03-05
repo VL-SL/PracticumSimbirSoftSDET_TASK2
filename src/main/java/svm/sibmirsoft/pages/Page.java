@@ -44,12 +44,14 @@ public class Page extends BasePage {
         inputText(password, passwordIn);
     }
 
-    public void setDrink(String drinkNumber) {
-        click(drink(drinkNumber));
+    public void setDrink(String drinkName) {
+        By drinkLocator = By.xpath("//input[@type='checkbox' and @value='" + drinkName + "']");
+        click(drinkLocator);
     }
 
-    public void setColor(String colorNumber) {
-        click(color(colorNumber));
+    public void setColor(String colorName) {
+        By drinkLocator = By.xpath("//input[@type='radio' and @value='" + colorName + "']");
+        click(drinkLocator);
     }
 
     public void setEmail(String emailIn) {
@@ -95,12 +97,14 @@ public class Page extends BasePage {
         return getFieldValue(password);
     }
 
-    public boolean isDrinkSelected(String drinkNumber) {
-        return findElement(drink(drinkNumber)).isSelected();
+    public boolean isDrinkSelected(String drinkName) {
+        By drinkLocator = By.xpath("//input[@type='checkbox' and @value='" + drinkName + "']");
+        return findElement(drinkLocator).isSelected();
     }
 
-    public boolean isColorSelected(String colorNumber) {
-        return findElement(color(colorNumber)).isSelected();
+    public boolean isColorSelected(String colorName) {
+        By drinkLocator = By.xpath("//input[@type='radio' and @value='" + colorName + "']");
+        return findElement(drinkLocator).isSelected();
     }
 
     public String getEmailValue() {
